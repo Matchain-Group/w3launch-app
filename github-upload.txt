@@ -1,0 +1,20 @@
+UPLOAD THESE FOLDERS:
+- src/
+- api/
+
+UPLOAD THESE FILES:
+- index.html
+- package.json
+- package-lock.json
+- postcss.config.cjs
+- tailwind.config.cjs
+- vite.config.js
+- vercel.json
+- README.md
+- .env.example
+- .gitignore
+
+DO NOT UPLOAD:
+- .env
+- node_modules/
+- .git/

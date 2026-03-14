@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --spotlight-x: 50%;
+  --spotlight-y: 50%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background: #0a0a0f;
+  overflow-x: hidden;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff, #7b2fbe 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 24px rgba(123, 47, 190, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+.spotlight {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--spotlight-x) var(--spotlight-y),
+    rgba(123, 47, 190, 0.15),
+    transparent 55%
+  );
+  z-index: 1;
+}
+
+.crypto-float {
+  position: absolute;
+  animation: drift 14s linear infinite;
+  opacity: 0.15;
+  font-size: 28px;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(40px);
+  }
+  100% {
+    transform: translateY(-120px);
+  }
+}
+
+.matrix-bg {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 255, 148, 0.15),
+    rgba(0, 255, 148, 0.15) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+  animation: matrix 18s linear infinite;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.ticker-mask {
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.flip-number {
+  perspective: 600px;
+}
