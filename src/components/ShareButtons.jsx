@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 import { FaXTwitter, FaDiscord, FaCopy, FaLink } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
+=======
+import {
+  FaXTwitter,
+  FaTelegramPlane,
+  FaDiscord,
+  FaCopy,
+  FaLink
+} from "react-icons/fa6";
+>>>>>>> 6de7d05424eb3d7bfe91b5ab1e9a7e474af6cb28
 import { SiFarcaster, SiLens } from "react-icons/si";
 import { useState } from "react";
 
