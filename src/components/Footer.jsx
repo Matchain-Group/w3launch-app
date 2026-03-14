@@ -1,4 +1,5 @@
-import { FaXTwitter, FaDiscord, FaTelegramPlane, FaGithub, FaMedium } from "react-icons/fa6";
+import { FaXTwitter, FaDiscord, FaGithub, FaMedium } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export default function Footer() {
   const productName = import.meta.env.VITE_PRODUCT_NAME || "W3Launch";

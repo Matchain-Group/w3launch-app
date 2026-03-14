@@ -4,18 +4,28 @@ import App from "./App.jsx";
 import "./index.css";
 import "@rainbow-me/rainbowkit/styles.css";
 
-import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { WagmiProvider } from "wagmi";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { WagmiProvider, createConfig, http } from "wagmi";
 import { mainnet, polygon } from "wagmi/chains";
+import { metaMask, coinbaseWallet, walletConnect } from "wagmi/connectors";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const projectId =
-  import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || "demo-project-id";
+const projectId = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID;
+const appName = import.meta.env.VITE_PRODUCT_NAME || "W3Launch";
+const chains = [mainnet, polygon];
+const connectors = [
+  metaMask(),
+  coinbaseWallet({ appName }),
+  ...(projectId ? [walletConnect({ projectId })] : [])
+];
 
-const config = getDefaultConfig({
-  appName: "W3Launch",
-  projectId,
-  chains: [mainnet, polygon],
+const config = createConfig({
+  chains,
+  connectors,
+  transports: {
+    [mainnet.id]: http(),
+    [polygon.id]: http()
+  },
   ssr: false
 });
 
@@ -25,7 +35,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
+        <RainbowKitProvider chains={chains}>
           <App />
         </RainbowKitProvider>
       </QueryClientProvider>

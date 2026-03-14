@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useIsMobile } from "../hooks/useIsMobile";
 import GlobeCanvas from "./GlobeCanvas";
-import "particles.js";
 
 const particleConfig = {
   particles: {
@@ -37,18 +36,22 @@ export default function Background() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!window.particlesJS) return;
-    const config = {
-      ...particleConfig,
-      particles: {
-        ...particleConfig.particles,
-        number: {
-          ...particleConfig.particles.number,
-          value: isMobile ? 60 : 120
+    const loadParticles = async () => {
+      await import("particles.js");
+      if (!window.particlesJS) return;
+      const config = {
+        ...particleConfig,
+        particles: {
+          ...particleConfig.particles,
+          number: {
+            ...particleConfig.particles.number,
+            value: isMobile ? 60 : 120
+          }
         }
-      }
+      };
+      window.particlesJS("particles-js", config);
     };
-    window.particlesJS("particles-js", config);
+    loadParticles();
   }, [isMobile]);
 
   return (

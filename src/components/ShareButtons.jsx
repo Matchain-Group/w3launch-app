@@ -1,10 +1,5 @@
-import {
-  FaXTwitter,
-  FaTelegramPlane,
-  FaDiscord,
-  FaCopy,
-  FaLink
-} from "react-icons/fa6";
+import { FaXTwitter, FaDiscord, FaCopy, FaLink } from "react-icons/fa6";
+import { FaTelegramPlane } from "react-icons/fa";
 import { SiFarcaster, SiLens } from "react-icons/si";
 import { useState } from "react";
 
