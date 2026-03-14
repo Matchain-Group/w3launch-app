@@ -146,13 +146,19 @@ pnpm install
 pnpm dev
 ```
 
+### Environment Variables
+
+Create a `.env.local` file in the project root with the following:
+
+```env
+Your keys
 ```
 
 ### Deploy
 
 W3Launch is optimized for one-click deployment on Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://w3launch-app.vercel.app/)
+[![Deploy with Vercel](https://vercel.com/button)](https://w3launch-app.vercel.app/#)
 
 ---
 
